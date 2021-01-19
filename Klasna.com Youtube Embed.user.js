@@ -24,7 +24,9 @@
         }
         else {
             alert('Невірне посилання!');
+            return false;
         }
+        return true;
     }
     let add = (id) => {
         let obj = CKEDITOR.dom.element.createFromHtml('<iframe width="560" height="315" src="https://www.youtube.com/embed/'+id+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
@@ -40,6 +42,6 @@
     });
     $('#vidpaste').click(() => {
         let url = $('#vidlink').val();
-        parseAndAdd(url);
+        if (parseAndAdd(url)) $('#vidlink').val('');
     });
 })();
